@@ -24,5 +24,9 @@ Run
 Run 
 ```afl-fuzz -i in -o out4final -m none -- ./hunspellbin2 @@``` to start fuzzing.
 
+Side note: on output_results_extra.tar.gz 
+This contains two files that parsed the original input file to find what inputs were valid and invalid (i.e. words that Hunspell believes needs suggestions or are completely unfixable)
+There is also the frequency of the valid inputs in there, on ascending order.
+
 Results:
 ![image](https://user-images.githubusercontent.com/56899845/206831650-c15c486a-ae06-4011-9350-5e653697daa4.png)
