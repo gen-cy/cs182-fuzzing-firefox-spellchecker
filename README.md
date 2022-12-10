@@ -17,3 +17,12 @@ AFL++, compile it
 Hunspell, compile it or install the package
 
 Docker can be used, but there are issues with instrumentating the cpp file as the hunspell libraries are not found, so it is recommended to build AFL++ to run `afl-c++` then `afl-fuzz.`
+
+Run 
+```afl-c++ -fsanitize=address,undefined -g -lhunspell-1.7 ./hunspellexample.c -o hunspellbin2 -Wall `pkg-config --cflags --libs hunspell` -Wall``` to compile and be eligible for instrumentation
+
+Run 
+```afl-fuzz -i in -o out4final -m none -- ./hunspellbin2 @@``` to start fuzzing.
+
+Results:
+![image](https://user-images.githubusercontent.com/56899845/206831650-c15c486a-ae06-4011-9350-5e653697daa4.png)
